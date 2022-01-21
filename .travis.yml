@@ -2,22 +2,22 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t greshmashaji/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t greshmashaji123/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true greshmashaji/react-test npm test
+  - docker run -e CI=true greshmashaji123/react-test npm test
 
 after_success:
-  - docker build -t greshmashaji/multi-client ./client
-  - docker build -t greshmashaji/multi-nginx ./nginx
-  - docker build -t greshmashaji/multi-server ./server
-  - docker build -t greshmashaji/multi-worker ./worker 
+  - docker build -t greshmashaji123/multi-client ./client
+  - docker build -t greshmashaji123/multi-nginx ./nginx
+  - docker build -t greshmashaji123/multi-server ./server
+  - docker build -t greshmashaji123/multi-worker ./worker 
 
   - echo '$DOCKER_PASSWORD' | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push greshmashaji/multi-client
-  - docker push greshmashaji/multi-server
-  - docker push greshmashaji/multi-nginx
-  - docker push greshmashaji/multi-worker
-  
+  - docker push greshmashaji123/multi-client
+  - docker push greshmashaji123/multi-server
+  - docker push greshmashaji123/multi-nginx
+  - docker push greshmashaji123/multi-worker
+
 
